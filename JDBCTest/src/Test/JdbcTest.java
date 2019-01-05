@@ -9,7 +9,7 @@ public class JdbcTest {
 		// TODO Auto-generated method stub
 
 		Class.forName("com.mysql.cj.jdbc.Driver");
-		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/deepak", "root", "admin");
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/", "root", "admin123");
 		System.out.println(con);
 		
 		
