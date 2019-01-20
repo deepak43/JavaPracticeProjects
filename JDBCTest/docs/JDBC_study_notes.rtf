@@ -1,7 +1,7 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf200
-{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red63\green127\blue95;}
+{\*\expandedcolortbl;;\csgenericrgb\c24706\c49804\c37255;}
 \paperw11900\paperh16840\margl1440\margr1440\vieww19060\viewh14180\viewkind0
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
@@ -85,6 +85,8 @@ Here, two dependancies - Client need database application server jar.  While DB 
 \
 Can be used for standalone as well as remote DB access. \
 \
+E.g. WebLogic, IDS are DB app servers\
+\
 \
 \
 \
@@ -156,6 +158,7 @@ Step - 3 : Create statements\
 \
 Step - 4 : Execute SQL statements\
         I. Using statement\
+              Statement st = conn.createStatement();\
                  st.execute(DDL);   // data definition language - create/alter/drop/truncate/rename table\
                  st.executeUpdate(DML); // data  - insert/update/delete record\
                  st.executeQuery(DRL)  // data retrieval - select records\
@@ -166,6 +169,9 @@ Step - 4 : Execute SQL statements\
                 pst.executeQuery();\
 \
       III. Using callable statement - useful for executing procedures or functions \
+\
+      iv. conn.setAutoCommit() is by default true. But if its false then you need to commit your changes to insert those into DB permanently. Only for DML statements.\
+                conn.commit();  \
                \
 Step - 5 : Read data from DB\
             ResultSet can be used to iterate data coming from DB. \
@@ -173,4 +179,34 @@ Step - 5 : Read data from DB\
 \
 Step - 6 : Handle exceptions\
         JDBC statements will throw compile time exception. i.e. Checked exceptions.\
-        SQLException}
+        SQLException\
+\
+\
+\
+\
+\
+\
+\
+\
+*****************************************************************************************************************************************************************************************\
+\
+MySql Help - \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf2 Commands from terminal :\cf0 \
+\cf2 		    		  \
+    To connect to mysql 		: 		\ul mysql\ulnone  -u root -p\
+    To see all databases 	: 		show databases;\
+    To select particular DB 	: 		use <db_name>;\
+    To see all tables 		: 		show tables;\
+    To see details of table 	: 		describe <table_name>;\
+\
+\
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0 \cf0 *****************************************************************************************************************************************************************************************
+\f1 \cf2 \
+}
