@@ -110,7 +110,7 @@ It is recommended for enterprise applications. These are pure java and lightweig
 Different classes and Interfaces :\
 ======================== \
 \
-1. DriverManager (C)  - To register drivers and get connection\
+1. DriverManager (C)  - To register drivers and get connection. This is prototype factory class.\
 2. Driver (I) - every DB vendor must need to implement this interface\
 3. Connection (I) - useful to get connection from DB\
 4. Statement (I) - useful to pass sql statements to DB\
@@ -147,6 +147,8 @@ Step - 2 : Get connection\
       ii. DriverManager.getConnection(\'93url\'94, \'93username\'94, \'93password\'94);  OR\
      iii. DriverManager.getConnection(\'93url\'94, \'93properties\'94)\
 \
+Since DriverManager prototype factory class, if we make getConnection 10 times, it will provide 10 connections.\
+\
 Step - 3 : Create statements\
        There are 3 ways\
           i.  Using statement\
@@ -180,6 +182,9 @@ Step - 5 : Read data from DB\
 Step - 6 : Handle exceptions\
         JDBC statements will throw compile time exception. i.e. Checked exceptions.\
         SQLException\
+\
+Step - 7 : Close the connection before going to stop application. To avoid ConnectionNotAvailable.\
+              conn.close();\
 \
 \
 \
